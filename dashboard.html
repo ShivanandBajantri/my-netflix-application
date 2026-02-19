@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Movies - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+</head>
+<body class="dashboard-page">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>🎬 Netflix Movies</h1>
+        </div>
+        <div class="nav-search">
+            <input type="text" id="searchInput" placeholder="Search movies...">
+            <button id="searchBtn" class="btn-search">🔍</button>
+        </div>
+        <div class="nav-user">
+            <span id="userName">Welcome, User</span>
+            <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p>Loading movies...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-banner hidden">
+            <p></p>
+            <button onclick="location.reload()">Retry</button>
+        </div>
+
+        <!-- Search Results Title -->
+        <div id="searchResultsTitle" class="search-results-title hidden">
+            <h2>Search Results for "<span id="searchQuery"></span>"</h2>
+            <button id="clearSearch" class="btn-secondary">Clear Search</button>
+        </div>
+
+        <!-- Movie Categories -->
+        <div id="movieContent">
+            <!-- Trending Movies -->
+            <section class="movie-category">
+                <h2 class="category-title">🔥 Trending</h2>
+                <div class="movie-row" id="trendingMovies">
+                    <!-- Movies will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Popular Movies -->
+            <section class="movie-category">
+                <h2 class="category-title">⭐ Popular</h2>
+                <div class="movie-row" id="popularMovies">
+                    <!-- Movies will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Top Rated Movies -->
+            <section class="movie-category">
+                <h2 class="category-title">🏆 Top Rated</h2>
+                <div class="movie-row" id="topRatedMovies">
+                    <!-- Movies will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Action Movies -->
+            <section class="movie-category">
+                <h2 class="category-title">💪 Action</h2>
+                <div class="movie-row" id="actionMovies">
+                    <!-- Movies will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Comedy Movies -->
+            <section class="movie-category">
+                <h2 class="category-title">😂 Comedy</h2>
+                <div class="movie-row" id="comedyMovies">
+                    <!-- Movies will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Movie Details Modal -->
+    <div id="movieModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <div class="modal-body">
+                <div class="modal-poster">
+                    <img id="modalPoster" src="" alt="Movie Poster">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle">Movie Title</h2>
+                    <div class="modal-meta">
+                        <span id="modalRating" class="rating-badge">⭐ 0.0</span>
+                        <span id="modalYear">2024</span>
+                        <span id="modalRuntime">0 min</span>
+                    </div>
+                    <div class="modal-genres" id="modalGenres">
+                        <!-- Genres will be loaded here -->
+                    </div>
+                    <div class="modal-overview">
+                        <h3>Overview</h3>
+                        <p id="modalOverview">Movie overview...</p>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn-play">▶ Play Trailer</button>
+                        <button class="btn-add-list">+ My List</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Powered by TMDB API | This is a demo project</p>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
